@@ -28,7 +28,7 @@ const IndexScreen = ({ navigation }) => {
               <View style={styles.row}>
                 <Text style={styles.title}>
                   {item.title} - {item.id}
-                </Text>
+                </Text> 
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                   <Feather style={styles.icon} name='trash' color='black' />
                 </TouchableOpacity>
@@ -39,6 +39,16 @@ const IndexScreen = ({ navigation }) => {
       />
     </View>
   );
+};
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Feather name='plus' size={30} />
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({
